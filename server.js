@@ -1,6 +1,9 @@
 import express from "express"
+import ProductRoutes from "./src/features/product/productRoutes.js"
 
 const server = express()
+
+server.use('/api/products', ProductRoutes)
 
 server.get('/', (req, res)=>{
     res.send("Hello World")
