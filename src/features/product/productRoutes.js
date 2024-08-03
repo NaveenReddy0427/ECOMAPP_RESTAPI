@@ -6,10 +6,12 @@ const router = express.Router()
 
 const productController = new ProductController
 
+router.get('/filter', productController.filterProducts)
 router.get('/', productController.getAllProducts)
 router.post('/', upload.single('imageUrl'), productController.addProduct)
 router.post('/', productController.rateProduct)
 router.get('/:id', productController.getOneProduct)
+
 
 
 export default router;
