@@ -1,9 +1,14 @@
 import express from "express"
-import ProductRoutes from "./src/features/product/productRoutes.js"
+import productRouter from "./src/features/product/productRoutes.js"
+import userRouter from "./src/features/user/userRoutes.js"
 
 const server = express()
 
-server.use('/api/products', ProductRoutes)
+// middleware to parse the json data
+server.use(express.json())
+
+server.use('/api/products', productRouter)
+server.use('/api/users', userRouter)
 
 server.get('/', (req, res)=>{
     res.send("Hello World")
